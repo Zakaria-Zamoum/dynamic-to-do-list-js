@@ -1,5 +1,6 @@
 // Wait for the DOM to fully load
 document.addEventListener('DOMContentLoaded', function () {
+    // Select DOM elements
     const addButton = document.getElementById('add-task-btn');
     const taskInput = document.getElementById('task-input');
     const taskList = document.getElementById('task-list');
@@ -8,6 +9,7 @@ document.addEventListener('DOMContentLoaded', function () {
     function addTask() {
         const taskText = taskInput.value.trim();
 
+        // Validate input
         if (taskText === "") {
             alert("Please enter a task.");
             return;
@@ -23,11 +25,11 @@ document.addEventListener('DOMContentLoaded', function () {
         removeBtn.className = "remove-btn";
 
         // Remove task when button is clicked
-        removeBtn.onclick = function () {
+        removeBtn.addEventListener('click', function () {
             taskList.removeChild(li);
-        };
+        });
 
-        // Append button and task to list
+        // Append button to list item, then item to list
         li.appendChild(removeBtn);
         taskList.appendChild(li);
 
